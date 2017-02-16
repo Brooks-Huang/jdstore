@@ -2,7 +2,7 @@ class Admin::ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_action :admin_required
 
-  #layout "admin"
+  layout "admin"
 
   def index
     @products = Product.all
