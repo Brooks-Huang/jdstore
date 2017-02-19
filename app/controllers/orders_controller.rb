@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   def create
       @order = Order.new(order_params)
       @order.user = current_user
+      #@order = current_user.orders.build(order_params)
       @order.total = current_cart.total_price
 
       if @order.save
@@ -26,6 +27,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find_by_token(params[:id])
     @product_lists = @order.product_lists
+    #@order = current_user.orders.find_by_token(params[:id])
   end
 
   private
